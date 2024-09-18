@@ -23,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo_excel'])) {
             // Inicia el contenido HTML
             echo '<html>
                     <head>
-                        <title>Códigos de Barras</title>
+                        <title>Codigos de Barras</title>
+                        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
                     </head>
                 <body>
                     <div style="width: 100%; text-align: center;">';
