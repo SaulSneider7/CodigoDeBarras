@@ -23,8 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo_excel'])) {
             // Inicia el contenido HTML
             echo '<html>
                     <head>
-                        <title>Codigos de Barras</title>
-                        <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+                        <title>Códigos de Barras</title>
                     </head>
                 <body>
                     <div style="width: 100%; text-align: center;">';
@@ -43,21 +42,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo_excel'])) {
                 $barcodeBase64 = base64_encode($barcode);
                 $barcodeImg = 'data:image/png;base64,' . $barcodeBase64;
 
-                // Crear la estructura visual sin las etiquetas
+                // Crear la estructura visual con el contenedor de 2cm de alto
                 echo '
-                    <div style="text-align: center; margin-bottom: 20px;">
-                        <img src="img/logo.png" width="50" /><br><br>
-                        <img src="' . $barcodeImg . '" width="200" height="50" />
-                        <div style="font-size: 14px; font-weight: bold; margin-top: 10px;">
+                    <div style="text-align: center; margin-bottom: 20px; height: 1.70cm;">
+                        <img src="' . $barcodeImg . '" width="200" />
+                        <div style="font-size: 11px; font-weight: bold; margin-top: 5px;">
                             ' . htmlspecialchars($descripcion) . '
                         </div>
-                        <div style="font-size: 12px; color: #555;">
-                            ' . htmlspecialchars($color) . ' - ' . htmlspecialchars($talla) . '
-                        </div>
-                        <div style="font-size: 14px; color: #000; margin-top: 5px;">
-                            S/' . htmlspecialchars($precio) . '
+                        <div style="font-size: 12px; color: #555; font-weight: bold;">
+                            ' . htmlspecialchars($color) . ' - ' . htmlspecialchars($talla) . ' |  S/' . htmlspecialchars($precio) . '
                         </div>
                     </div>
+
                     <br><hr><br>
                 ';
             }
